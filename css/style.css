@@ -32,6 +32,7 @@ html{
 
 body {
     background: #eee;
+    overflow: hidden;
 }
 
 section {

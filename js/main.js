@@ -23,6 +23,20 @@ document.querySelector('#login-btn').onclick = ()=> {
     searchForm.classList.remove('active');
 }
 
+let registerForm = document.querySelector('.register-form');
+let overlay = document.querySelector('.overlay');
+document.querySelector('.header .login-form p a.register').onclick = () => {
+    registerForm.classList.add('active');
+    overlay.classList.add('active');
+    loginForm.classList.remove('active');
+}
+
+//Close button registerForm
+document.querySelector('.header .register-form .close i').onclick = () => {
+  overlay.classList.remove('active');
+  registerForm.classList.remove('active');
+}
+
 let navbar = document.querySelector('.navbar');
 document.querySelector('#menu-btn').onclick = ()=> {
     navbar.classList.toggle('active');

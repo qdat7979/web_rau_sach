@@ -56,7 +56,20 @@ section {
     color: #fff;
 }
 
-.header {
+.overlay.active {
+    position: fixed;
+    width: 100vw; 
+    height: 100vh; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 3000; 
+    cursor: pointer; /* Add a pointer on hover */
+}
+
+.header { 
     position: fixed;
     top: 0;
     left: 0;
@@ -231,18 +244,50 @@ section {
     text-align: center;
 }
 
+.header .register-form {
+    position: absolute;
+    top: 150%; right: -110%;
+    transform: translateX(50%);
+    width: 50rem;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    border-radius: .5rem;
+    background: #fff;
+    text-align: center;
+    z-index: 5000;
+}
+
+.header .register-form.active {
+    right: 50%;
+    transition: .3s linear;
+}
+
+.header .register-form .close i{
+    font-size: 2.5rem;
+    padding: 10px 15px;
+}
+
+.header .register-form .close {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    cursor: pointer;
+}
+
 .header .login-form.active {
     right: 2rem;
     transition: .3s linear;
 }
 
-.header .login-form h3 {
+.header .login-form h3, 
+.header .register-form h3 {
     font-size: 2.5rem;
     text-transform: uppercase;
     color: var(--black);
 }
 
-.header .login-form .box {
+.header .login-form .box,
+.header .register-form .box {
     width: 100%;
     margin: .7rem 0;
     background: #eee;
@@ -263,6 +308,7 @@ section {
     color: var(--orange);
     text-decoration: none;
 }
+
 
 .home {
     display: flex;

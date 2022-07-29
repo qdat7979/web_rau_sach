@@ -1,5 +1,5 @@
-1. Responsive
+1. Responsive: DONE !
    - PC: OK
    - Ipad Pro: OK
    - Ipad: OK
-   - Iphone các dòng: Fine
+   - Iphone các dòng: OK

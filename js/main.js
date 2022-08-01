@@ -27,12 +27,14 @@ let registerForm = document.querySelector('.register-form');
 let overlay = document.querySelector('.overlay');
 document.querySelector('.header .login-form p a.register').onclick = () => {
     registerForm.classList.add('active');
+    overlay.style.display ='block';
     overlay.classList.add('active');
     loginForm.classList.remove('active');
 }
 
 //Close button registerForm
 document.querySelector('.header .register-form .close i').onclick = () => {
+  overlay.style.display ='none';
   overlay.classList.remove('active');
   registerForm.classList.remove('active');
 }
@@ -51,8 +53,6 @@ window.onscroll = () => {
     shoppingCart.classList.remove('active');
     searchForm.classList.remove('active');
 }
-
-// features section
 
 // product section
 var swiper = new Swiper(".product-slider", {
@@ -76,4 +76,26 @@ var swiper = new Swiper(".product-slider", {
         slidesPerView: 3,
       },
     },
+});
+
+//review section
+var swiper = new Swiper(".review-slider", {
+  loop:true,
+  spaceBetween: 20,
+  autoplay: {
+      delay: 7500,
+      disableOnInteraction: false,
+  },
+  centeredSlides: true,
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    1020: {
+      slidesPerView: 3,
+    },
+  },
 });

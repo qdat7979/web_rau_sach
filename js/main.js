@@ -47,11 +47,20 @@ document.querySelector('#menu-btn').onclick = ()=> {
     searchForm.classList.remove('active');
 }
 
+// Search 
+let inputSearch = document.querySelector('.header .search-form input');
+let searchHint = document.querySelector('.header .search-form .search-hint');
+inputSearch.onclick = function() {
+    searchHint.style.display="block";
+}
+
+
 window.onscroll = () => {
     navbar.classList.remove('active');
     loginForm.classList.remove('active');
     shoppingCart.classList.remove('active');
     searchForm.classList.remove('active');
+    searchHint.style.display = "none";  
 }
 
 // product section
@@ -99,3 +108,7 @@ var swiper = new Swiper(".review-slider", {
     },
   },
 });
+
+// Products
+var getProducts = document.querySelectorAll('.products .product-slider .box h3');
+console.log(getProducts);

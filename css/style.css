@@ -135,7 +135,7 @@ section {
     height: 4.5rem;
     background: #fff;
     border-radius: .5rem;
-    overflow: hidden;
+    /* overflow: hidden; */
     display: flex;
     align-items: center;
     box-shadow: var(--box-shadow);
@@ -164,6 +164,41 @@ section {
 }
 
 .header .search-form label:hover {
+    color: var(--orange);
+}
+
+.header .search-form .search-hint {
+    display: none;
+    position: absolute;
+    top: 110%; left: 0;
+    font-size: 1.6rem;
+    padding: 0 1.5rem;
+    background: #fff;
+    width: 100%;
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+}
+
+.header .search-form .search-hint-list {
+    list-style: none;
+}
+
+.header .search-form .search-hint-item {
+    padding: 1.5rem 0;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+
+.header .search-form .search-hint-item:last-child {
+    border-bottom: none;
+}
+
+.header .search-form .search-hint-item a {
+    display: inline-block;
+    color: var(--light-color);
+    width: 100%;
+}
+.header .search-form .search-hint-item a:hover {
     color: var(--orange);
 }
 

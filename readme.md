@@ -1,1 +1,6 @@
-UI Done
+- UI Done
+- Form đăng ký validation:
+- Chức năng giỏ hàng: 
+- Chức năng validation email footer: 
+- Button Quên Mật khẩu: Done
+- Chức năng tìm kiếm: Done 

@@ -282,7 +282,8 @@ section {
     text-align: center;
 }
 
-.header .register-form {
+.header .register-form,
+.header .forget-form {
     position: absolute;
     top: 150%; right: -110%;
     transform: translateX(50%);
@@ -295,17 +296,20 @@ section {
     z-index: 5000;
 }
 
-.header .register-form.active {
+.header .register-form.active,
+.header .forget-form.active {
     right: 50%;
     transition: .3s linear;
 }
 
-.header .register-form .close i{
+.header .register-form .close i,
+.header .forget-form .close i{
     font-size: 2.5rem;
     padding: 10px 15px;
 }
 
-.header .register-form .close {
+.header .register-form .close,
+.header .forget-form .close {
     position: absolute;
     top: 0.5rem;
     right: 1rem;
@@ -318,14 +322,16 @@ section {
 }
 
 .header .login-form h3, 
-.header .register-form h3 {
+.header .register-form h3,
+.header .forget-form h3 {
     font-size: 2.5rem;
     text-transform: uppercase;
     color: var(--black);
 }
 
 .header .login-form .box,
-.header .register-form .box {
+.header .register-form .box,
+.header .forget-form .box {
     width: 100%;
     margin: .7rem 0;
     background: #eee;

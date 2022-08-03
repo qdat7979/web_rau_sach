@@ -31,12 +31,25 @@ document.querySelector('.header .login-form p a.register').onclick = () => {
     overlay.classList.add('active');
     loginForm.classList.remove('active');
 }
-
 //Close button registerForm
 document.querySelector('.header .register-form .close i').onclick = () => {
   overlay.style.display ='none';
   overlay.classList.remove('active');
   registerForm.classList.remove('active');
+}
+
+// Forget password
+let forgetForm = document.querySelector('.forget-form');
+document.querySelector('.header .login-form p a').onclick = () => {
+    forgetForm.classList.add('active');
+    overlay.style.display ='block';
+    overlay.classList.add('active');
+    loginForm.classList.remove('active');
+}
+document.querySelector('.header .forget-form .close i').onclick = (e) => {
+  overlay.style.display ='none';
+  overlay.classList.remove('active');
+  forgetForm.classList.remove('active');
 }
 
 let navbar = document.querySelector('.navbar');
@@ -57,8 +70,6 @@ inputSearch.onclick = function() {
 }
 
 // Product 
-// tạo mảng có các tên sản phầm, input.value có tên sản phầm thì
-// -> tạo trang mới hiện sản phầm và thông tin sản phẩm
 let getDivProduct = document.querySelector('.container');
 console.log(getDivProduct);
 let productList = ['Cà Rốt', 'Hành Tím','Chanh Tươi','Khoai T'];

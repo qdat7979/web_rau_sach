@@ -87,31 +87,24 @@ searchBtn.onclick = function() {
   getDivProduct.classList.add('active','grid','wide');
   getBackgroundPlace.classList.add('active');
   searchForm.classList.remove('active');
-  var flag = true;
-  for(var i = 0; i < productListDiv.length; i++){
-    if(productList[i].toLowerCase().includes(inputSearch.value.toLowerCase())){
-      flag = true;
-      break;
-    } else {
-      flag = false;
-    }
-  }
-  console.log(flag);
-  console.log(productListDiv.indexOf(productListDiv[i]));
-  if(!flag){
+  // regEx replace(/\s+/g, '') no white space
+  if(!inputSearch.value || !inputSearch.value.replace(/\s+/g, '')){
     getDivProduct.innerHTML = '<div class="box-product"><img src="./image/empty_cart.jpg" alt="" /><h3>Rất tiếc sản phẩm này không có !</h3><div class="price"></div><div class="stars"></div></div> <div class="product-info"><div class="product-header"><h3>Tên sản phẩm:</h3><div class="product-name"></div></div><h3>Thông tin sản phẩm:</h3><p></p></div>';
   } else {
-    for(var j in productList){
-      // "i" is global variable
-      if(productListDiv.indexOf(productListDiv[i]) == j){
-        console.log('OK');
-        getDivProduct.innerHTML = productListDiv[i];
+    for(let i = 0; i < productListDiv.length; i++){
+      if(productList[i].toLowerCase().trim().includes(inputSearch.value.toLowerCase().trim())){
+        for(let j in productList){
+          if(productListDiv.indexOf(productListDiv[i]) == j){
+            getDivProduct.innerHTML = productListDiv[i];
+          }
+        }
+        break;
+      } else {
+        getDivProduct.innerHTML = '<div class="box-product"><img src="./image/empty_cart.jpg" alt="" /><h3>Rất tiếc sản phẩm này không có !</h3><div class="price"></div><div class="stars"></div></div> <div class="product-info"><div class="product-header"><h3>Tên sản phẩm:</h3><div class="product-name"></div></div><h3>Thông tin sản phẩm:</h3><p></p></div>';
       }
     }
   }
 }
-
-
 
 window.onscroll = () => {
     navbar.classList.remove('active');

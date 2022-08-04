@@ -31,6 +31,7 @@ document.querySelector('.header .login-form p a.register').onclick = () => {
     overlay.classList.add('active');
     loginForm.classList.remove('active');
 }
+
 //Close button registerForm
 document.querySelector('.header .register-form .close i').onclick = () => {
   overlay.style.display ='none';
@@ -63,38 +64,50 @@ document.querySelector('#menu-btn').onclick = ()=> {
 // Search 
 let inputSearch = document.querySelector('.header .search-form input');
 let searchBtn = document.querySelector('.header .search-form a');
-console.log(searchBtn);
+
 let searchHint = document.querySelector('.header .search-form .search-hint');
 inputSearch.onclick = function() {
     searchHint.style.display="block";
 }
 
-// Product 
+// Product Filter
 let getDivProduct = document.querySelector('.container');
-console.log(getDivProduct);
-let productList = ['Cà Rốt', 'Hành Tím','Chanh Tươi','Khoai T'];
+let getBackgroundPlace = document.querySelector('.container-background');
+
+// object in productList position must match object in productListDiv  
+let productList = ['Cà Rốt', 'Hành Tím','Chanh Tươi','Khoai Tây'];
 let productListDiv = ['<div class="box-product"><img src="./image/product-7.png" alt="" /><h3>Cà rốt</h3><div class="price">12.000 VNĐ/kg</div><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i></div><a href="#" class="btn">Thêm vào giỏ</a></div> <div class="product-info"><div class="product-header"><h3>Tên sản phẩm:</h3><div class="product-name">Cà Rốt</div></div><h3>Thông tin sản phẩm:</h3><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut, vel.</p></div>',
 '<div class="box-product"><img src="./image/product-2.png" alt="" /><h3>Hành Tím</h3><div class="price">12.000 VNĐ/kg</div><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i></div><a href="#" class="btn">Thêm vào giỏ</a></div> <div class="product-info"><div class="product-header"><h3>Tên sản phẩm:</h3><div class="product-name">Hành Tím</div></div><h3>Thông tin sản phẩm:</h3><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut, vel.</p></div>',
 '<div class="box-product"><img src="./image/product-8.png" alt="" /><h3>Chanh Tươi</h3><div class="price">7.000 VNĐ/kg</div><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i></div><a href="#" class="btn">Thêm vào giỏ</a></div> <div class="product-info"><div class="product-header"><h3>Tên sản phẩm:</h3><div class="product-name">Chanh Tươi</div></div><h3>Thông tin sản phẩm:</h3><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut, vel.</p></div>',
 '<div class="box-product"><img src="./image/product-5.png" alt="" /><h3>Khoai Tây</h3><div class="price">12.000 VNĐ/kg</div><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i></div><a href="#" class="btn">Thêm vào giỏ</a></div> <div class="product-info"><div class="product-header"><h3>Tên sản phẩm:</h3><div class="product-name">Khoai Tây</div></div><h3>Thông tin sản phẩm:</h3><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut, vel.</p></div>',
 ];
-console.log(productListDiv);
 searchBtn.onclick = function() {
-  productList.filter(function(product){
-    if(inputSearch.value.toLowerCase() == product.toLowerCase()){
-      getDivProduct.classList.add('active','grid','wide');
-      searchForm.classList.remove('active');
-      productListDiv.filter(function(productDiv){
-        if(productDiv.includes(product)){
-          getDivProduct.innerHTML = productDiv;
-        }
-      })
+  getBackgroundPlace.classList.add('active');
+  searchForm.classList.remove('active');
+  getDivProduct.classList.add('active','grid','wide');
+  getBackgroundPlace.classList.add('active');
+  searchForm.classList.remove('active');
+  var flag = true;
+  for(var i = 0; i < productListDiv.length; i++){
+    if(productList[i].toLowerCase().includes(inputSearch.value.toLowerCase())){
+      flag = true;
+      break;
+    } else {
+      flag = false;
     }
-  })
-  if(!inputSearch.value.toLowerCase()){
+  }
+  console.log(flag);
+  console.log(productListDiv.indexOf(productListDiv[i]));
+  if(!flag){
     getDivProduct.innerHTML = '<div class="box-product"><img src="./image/empty_cart.jpg" alt="" /><h3>Rất tiếc sản phẩm này không có !</h3><div class="price"></div><div class="stars"></div></div> <div class="product-info"><div class="product-header"><h3>Tên sản phẩm:</h3><div class="product-name"></div></div><h3>Thông tin sản phẩm:</h3><p></p></div>';
-    getDivProduct.classList.add('active','grid','wide');
-    searchForm.classList.remove('active');
+  } else {
+    for(var j in productList){
+      // "i" is global variable
+      if(productListDiv.indexOf(productListDiv[i]) == j){
+        console.log('OK');
+        getDivProduct.innerHTML = productListDiv[i];
+      }
+    }
   }
 }
 

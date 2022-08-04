@@ -353,11 +353,19 @@ section {
     text-decoration: none;
 }
 
+.container-background.active{
+    background: url(/image/banner-bg.webp) no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-top:14rem;
+    padding-bottom: 6rem;
+    transition: .5s linear;
+}
+
 .container.active{
-    margin-top: 15rem;
-    margin-bottom: 10rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    transition: .5s linear;
 }
 
 .container .box-product{
@@ -370,12 +378,11 @@ section {
     outline: var(--outline);
     box-shadow: var(--box-shadow);
     transition: .2s linear;
-    /* margin-left: 50px; */
 }
 
 .container .box-product img{
-    width: 100%;
-    height: 25rem;
+    width: 80%;
+    /* height: 25rem; */
 }
 
 .container .box-product:hover{
@@ -384,7 +391,7 @@ section {
 }
 .container .box-product h3{
     font-size: 2.5rem;
-    color: var(--black)
+    color: var(--orange);
 }
 .container .box-product .price{
     font-size: 2rem;
@@ -902,6 +909,10 @@ section {
     }
     .header .login-form {
         width: 35rem;
+    }
+
+    .header .register-form, .header .forget-form{
+        width: 45rem;
     }
     .features .box-container .box,
     .categories .box-container .box, 

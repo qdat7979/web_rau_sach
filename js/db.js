@@ -43,8 +43,75 @@ window.onscroll = () => {
     searchHint.style.display = "none";  
 }
 
+// Container when fail
+let CreateProductContainerFail = function(){
+    // Logic when product unfound
+    let containerProduct = document.createElement('div'); // container product
+    let boxProduct = document.createElement('div'); // box product
+    let img = document.createElement('img'); // img
+    let nameProduct = document.createElement('h3'); // name product
+    let price = document.createElement('div'); // price
+    let rate = document.createElement('div'); // stars
+    // let btn = document.createElement('a'); 
+    let productInfo = document.createElement('div'); // product info
+    let productHeader = document.createElement('div'); // product header
+    let prodcucth3 = document.createElement('h3'); //prodcut h3 
+    let productName = document.createElement('div'); // product name
+    let productDesc = document.createElement('h3'); // product description
+    let productP = document.createElement('p'); // product description
+
+    getDivProduct.appendChild(containerProduct).classList.add('container-product');
+    containerProduct.appendChild(boxProduct).classList.add('box-product');
+    boxProduct.appendChild(img).src = './image/empty_cart.jpg';
+    boxProduct.appendChild(nameProduct);
+    boxProduct.appendChild(price).classList.add('price');
+    boxProduct.appendChild(rate).classList.add('stars');
+    // boxProduct.appendChild(btn).classList.add('btn');
+    // boxProduct.appendChild(btn).innerHTML = 'Thêm sản phẩm';
+    
+    containerProduct.appendChild(productInfo).classList.add('product-info');
+    productInfo.appendChild(productHeader).classList.add('product-header');
+    productHeader.appendChild(prodcucth3).innerHTML = 'Tên sản phẩm';
+    productHeader.appendChild(productName).classList.add('product-name');
+    productInfo.appendChild(productDesc).innerHTML = 'Thông tin sản phẩm';
+    productInfo.appendChild(productP).innerHTML = 'rất tiếc ! Sản phẩm bạn tìm kiếm không có !';
+}
+
+// Container when success
+let CreateProductContainerSuccess = function(){
+    let containerProduct = document.createElement('div'); // container product
+    let boxProduct = document.createElement('div'); // box product
+    let img = document.createElement('img'); // img
+    let nameProduct = document.createElement('h3'); // name product
+    let price = document.createElement('div'); // price
+    let rate = document.createElement('div'); // stars
+    let btn = document.createElement('a'); // a tag
+    let productInfo = document.createElement('div'); // product info
+    let productHeader = document.createElement('div'); // product header
+    let prodcucth3 = document.createElement('h3'); //prodcut h3 
+    let productName = document.createElement('div'); // product name
+    let productDesc = document.createElement('h3'); // product description
+    let productP = document.createElement('p'); // product description
+
+    getDivProduct.appendChild(containerProduct).classList.add('container-product');
+    containerProduct.appendChild(boxProduct).classList.add('box-product');
+    boxProduct.appendChild(img);
+    boxProduct.appendChild(nameProduct);
+    boxProduct.appendChild(price).classList.add('price');
+    boxProduct.appendChild(rate).classList.add('stars');
+    boxProduct.appendChild(btn).classList.add('btn');
+    boxProduct.appendChild(btn).innerHTML = 'Thêm sản phẩm';
+    
+    containerProduct.appendChild(productInfo).classList.add('product-info');
+    productInfo.appendChild(productHeader).classList.add('product-header');
+    productHeader.appendChild(prodcucth3).innerHTML = 'Tên sản phẩm';
+    productHeader.appendChild(productName).classList.add('product-name');
+    productInfo.appendChild(productDesc).innerHTML = 'Thông tin sản phẩm';
+    productInfo.appendChild(productP);   
+}
+
 // Logic Find Product
-var check = function(){
+let check = function(){
     getHomeSection.style.display="none";
     getFeaturesSection.style.display="none";
     getBackgroundPlace.classList.add('active');
@@ -62,85 +129,30 @@ var check = function(){
                 desc: product.desc
             }
     })
-    console.log(getProductName);
 
     var productFound = [];
     for(i of getProductName) {
-        
         if(!inputSearch.value || !inputSearch.value.replace(/\s+/g, '')){
-
-            // Logic when product unfound
-            let containerProduct = document.createElement('div'); // container product
-            let boxProduct = document.createElement('div'); // box product
-            let img = document.createElement('img'); // img
-            let nameProduct = document.createElement('h3'); // name product
-            let price = document.createElement('div'); // price
-            let rate = document.createElement('div'); // stars
-            // let btn = document.createElement('a'); 
-            let productInfo = document.createElement('div'); // product info
-            let productHeader = document.createElement('div'); // product header
-            let prodcucth3 = document.createElement('h3'); //prodcut h3 
-            let productName = document.createElement('div'); // product name
-            let productDesc = document.createElement('h3'); // product description
-            let productP = document.createElement('p'); // product description
-    
-            getDivProduct.appendChild(containerProduct).classList.add('container-product');
-            containerProduct.appendChild(boxProduct).classList.add('box-product');
-            boxProduct.appendChild(img).src = './image/empty_cart.jpg';
-            boxProduct.appendChild(nameProduct);
-            boxProduct.appendChild(price).classList.add('price');
-            boxProduct.appendChild(rate).classList.add('stars');
-            // boxProduct.appendChild(btn).classList.add('btn');
-            // boxProduct.appendChild(btn).innerHTML = 'Thêm sản phẩm';
-            
-            containerProduct.appendChild(productInfo).classList.add('product-info');
-            productInfo.appendChild(productHeader).classList.add('product-header');
-            productHeader.appendChild(prodcucth3).innerHTML = 'Tên sản phẩm';
-            productHeader.appendChild(productName).classList.add('product-name');
-            productInfo.appendChild(productDesc).innerHTML = 'Thông tin sản phẩm';
-            productInfo.appendChild(productP).innerHTML = 'rất tiếc ! Sản phẩm bạn tìm kiếm không có !';
+            CreateProductContainerFail();
             break;
         }
+
         if(i.name.toLowerCase().trim().includes(inputSearch.value.toLowerCase().trim())){
             productFound.push(i);
-        }
+        } 
+    }
+
+    //Check Product Found 
+    if(!productFound.toString()){
+        CreateProductContainerFail();
     }
 
     // Create Prodcuct container
     // Product 
     for(let i = 0; i < productFound.length; i++){
-        let containerProduct = document.createElement('div'); // container product
-        let boxProduct = document.createElement('div'); // box product
-        let img = document.createElement('img'); // img
-        let nameProduct = document.createElement('h3'); // name product
-        let price = document.createElement('div'); // price
-        let rate = document.createElement('div'); // stars
-        let btn = document.createElement('a'); // a tag
-        let productInfo = document.createElement('div'); // product info
-        let productHeader = document.createElement('div'); // product header
-        let prodcucth3 = document.createElement('h3'); //prodcut h3 
-        let productName = document.createElement('div'); // product name
-        let productDesc = document.createElement('h3'); // product description
-        let productP = document.createElement('p'); // product description
-
-        getDivProduct.appendChild(containerProduct).classList.add('container-product');
-        containerProduct.appendChild(boxProduct).classList.add('box-product');
-        boxProduct.appendChild(img);
-        boxProduct.appendChild(nameProduct);
-        boxProduct.appendChild(price).classList.add('price');
-        boxProduct.appendChild(rate).classList.add('stars');
-        boxProduct.appendChild(btn).classList.add('btn');
-        boxProduct.appendChild(btn).innerHTML = 'Thêm sản phẩm';
-        
-        containerProduct.appendChild(productInfo).classList.add('product-info');
-        productInfo.appendChild(productHeader).classList.add('product-header');
-        productHeader.appendChild(prodcucth3).innerHTML = 'Tên sản phẩm';
-        productHeader.appendChild(productName).classList.add('product-name');
-        productInfo.appendChild(productDesc).innerHTML = 'Thông tin sản phẩm';
-        productInfo.appendChild(productP);
+        CreateProductContainerSuccess();
     } 
 
-        
     // Logic show products
     // Put info into DOM
     let getImgs = document.querySelectorAll('.box-product img');    
@@ -152,8 +164,6 @@ var check = function(){
     let getProductPs = document.querySelectorAll('.product-info p');
     
     //Product Name
-    console.log(getH3s);
-    console.log(productFound);
     Array.from(getH3s).map(function(h3){
         for(let i= 0; i < productFound.length; i++){
             if(Array.from(getH3s).indexOf(h3) === productFound.indexOf(productFound[i])){
@@ -163,8 +173,6 @@ var check = function(){
     })
 
     //Product img
-    console.log(getImgs);
-    console.log(productFound);
     Array.from(getImgs).map(function(img){
         for(let i= 0; i < productFound.length; i++){
             if(Array.from(getImgs).indexOf(img) === productFound.indexOf(productFound[i])){

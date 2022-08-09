@@ -359,16 +359,16 @@ section {
     background-size: cover;
     padding-top:14rem;
     padding-bottom: 6rem;
-    transition: .5s linear;
 }
 
 .container-product{
     display: flex;
     margin-top: 1rem;
+    transition: .3s linear;
 }
 
 .container.active{
-    transition: .5s linear;
+    transition: .2s linear;
 }
 
 .container .box-product{

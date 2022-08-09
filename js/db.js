@@ -47,7 +47,7 @@ window.onscroll = () => {
 
 // Container when fail
 let CreateProductContainerFail = function(){
-    // Logic when product unfound
+    
     let containerProduct = document.createElement('div'); // container product
     let boxProduct = document.createElement('div'); // box product
     let img = document.createElement('img'); // img
@@ -136,8 +136,8 @@ let check = function(){
 
     var productFound = [];
     for(i of getProductName) {
-        if(!inputSearch.value || !inputSearch.value.replace(/\s+/g, '')){
-            CreateProductContainerFail();
+        if(!inputSearch.value.replace(/\s+/g, '')){
+            // CreateProductContainerFail();
             break;
         }
 

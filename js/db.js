@@ -43,253 +43,40 @@ window.onscroll = () => {
     searchHint.style.display = "none";  
 }
 
+// Logic Find Product
+var check = function(){
+    getHomeSection.style.display="none";
+    getFeaturesSection.style.display="none";
+    getBackgroundPlace.classList.add('active');
+    searchForm.classList.remove('active');
+    getDivProduct.classList.add('active','grid','wide');
 
-//Search
-var first_click = true;
-searchBtn.onclick = function() {
-    if(first_click){
-        getHomeSection.style.display="none";
-        getFeaturesSection.style.display="none";
-        getBackgroundPlace.classList.add('active');
-        searchForm.classList.remove('active');
-        getDivProduct.classList.add('active','grid','wide');
-    
-        // Find Product
-        var getProductName = dataProducts.map(function(product){
-            return {   
-                    id : `${product.id}`,
-                    name: product.name.toLowerCase().trim(),
-                    url: product.img,
-                    rate: product.rate,
-                    price: product.price,
-                    desc: product.desc
-                }
-        })
-        console.log(getProductName);
-    
-        var productFound = [];
-        for(i of getProductName) {
-            
-            if(!inputSearch.value || !inputSearch.value.replace(/\s+/g, '')){
+    // Find Product
+    var getProductName = dataProducts.map(function(product){
+        return {   
+                id : `${product.id}`,
+                name: product.name.toLowerCase().trim(),
+                url: product.img,
+                rate: product.rate,
+                price: product.price,
+                desc: product.desc
+            }
+    })
+    console.log(getProductName);
 
-                // Logic when product unfound
-                let containerProduct = document.createElement('div'); // container product
-                let boxProduct = document.createElement('div'); // box product
-                let img = document.createElement('img'); // img
-                let nameProduct = document.createElement('h3'); // name product
-                let price = document.createElement('div'); // price
-                let rate = document.createElement('div'); // stars
-                let btn = document.createElement('a'); // a tag
-                let productInfo = document.createElement('div'); // product info
-                let productHeader = document.createElement('div'); // product header
-                let prodcucth3 = document.createElement('h3'); //prodcut h3 
-                let productName = document.createElement('div'); // product name
-                let productDesc = document.createElement('h3'); // product description
-                let productP = document.createElement('p'); // product description
+    var productFound = [];
+    for(i of getProductName) {
         
-                getDivProduct.appendChild(containerProduct).classList.add('container-product');
-                containerProduct.appendChild(boxProduct).classList.add('box-product');
-                boxProduct.appendChild(img).src = './image/empty_cart.jpg';
-                boxProduct.appendChild(nameProduct);
-                boxProduct.appendChild(price).classList.add('price');
-                boxProduct.appendChild(rate).classList.add('stars');
-                boxProduct.appendChild(btn).classList.add('btn');
-                boxProduct.appendChild(btn).innerHTML = 'Thêm sản phẩm';
-                
-                containerProduct.appendChild(productInfo).classList.add('product-info');
-                productInfo.appendChild(productHeader).classList.add('product-header');
-                productHeader.appendChild(prodcucth3).innerHTML = 'Tên sản phẩm';
-                productHeader.appendChild(productName).classList.add('product-name');
-                productInfo.appendChild(productDesc).innerHTML = 'Thông tin sản phẩm';
-                productInfo.appendChild(productP).innerHTML = 'rất tiếc ! Sản phẩm bạn tìm kiếm không có !';
-                break;
-            }
-            if(i.name.toLowerCase().trim().includes(inputSearch.value.toLowerCase().trim())){
-                productFound.push(i);
-            }
-        }
-    
-        // Create Prodcuct container
-        // Product 
-        for(let i = 0; i < productFound.length; i++){
+        if(!inputSearch.value || !inputSearch.value.replace(/\s+/g, '')){
+
+            // Logic when product unfound
             let containerProduct = document.createElement('div'); // container product
             let boxProduct = document.createElement('div'); // box product
             let img = document.createElement('img'); // img
             let nameProduct = document.createElement('h3'); // name product
             let price = document.createElement('div'); // price
             let rate = document.createElement('div'); // stars
-            let btn = document.createElement('a'); // a tag
-            let productInfo = document.createElement('div'); // product info
-            let productHeader = document.createElement('div'); // product header
-            let prodcucth3 = document.createElement('h3'); //prodcut h3 
-            let productName = document.createElement('div'); // product name
-            let productDesc = document.createElement('h3'); // product description
-            let productP = document.createElement('p'); // product description
-    
-            getDivProduct.appendChild(containerProduct).classList.add('container-product');
-            containerProduct.appendChild(boxProduct).classList.add('box-product');
-            boxProduct.appendChild(img);
-            boxProduct.appendChild(nameProduct);
-            boxProduct.appendChild(price).classList.add('price');
-            boxProduct.appendChild(rate).classList.add('stars');
-            boxProduct.appendChild(btn).classList.add('btn');
-            boxProduct.appendChild(btn).innerHTML = 'Thêm sản phẩm';
-            
-            containerProduct.appendChild(productInfo).classList.add('product-info');
-            productInfo.appendChild(productHeader).classList.add('product-header');
-            productHeader.appendChild(prodcucth3).innerHTML = 'Tên sản phẩm';
-            productHeader.appendChild(productName).classList.add('product-name');
-            productInfo.appendChild(productDesc).innerHTML = 'Thông tin sản phẩm';
-            productInfo.appendChild(productP);
-        } 
-    
-            
-        // Logic show products
-        // Put info into DOM
-        let getImgs = document.querySelectorAll('.box-product img');    
-        let getH3s = document.querySelectorAll('.box-product h3');    
-        let getPrices = document.querySelectorAll('.box-product .price');    
-        let getStarss = document.querySelectorAll('.box-product .stars'); 
-        
-        let getProductNames = document.querySelectorAll('.product-info .product-header .product-name');
-        let getProductPs = document.querySelectorAll('.product-info p');
-        
-        //Product Name
-        console.log(getH3s);
-        console.log(productFound);
-        Array.from(getH3s).map(function(h3){
-            for(let i= 0; i < productFound.length; i++){
-                if(Array.from(getH3s).indexOf(h3) === productFound.indexOf(productFound[i])){
-                    h3.innerHTML = productFound[i].name;
-                }
-            }
-        })
-    
-        //Product img
-        console.log(getImgs);
-        console.log(productFound);
-        Array.from(getImgs).map(function(img){
-            for(let i= 0; i < productFound.length; i++){
-                if(Array.from(getImgs).indexOf(img) === productFound.indexOf(productFound[i])){
-                    img.src = productFound[i].url;
-                }
-            }
-        })
-
-        // Product Rate
-        Array.from(getStarss).map(function(star){
-            for(let i= 0; i < productFound.length; i++){
-                if(Array.from(getStarss).indexOf(star) === productFound.indexOf(productFound[i])){
-                    star.innerHTML = productFound[i].rate;
-                }
-            }
-        })
-
-        // Product Price
-        Array.from(getPrices).map(function(price){
-            for(let i= 0; i < productFound.length; i++){
-                if(Array.from(getPrices).indexOf(price) === productFound.indexOf(productFound[i])){
-                    price.innerHTML = productFound[i].price + ' VND';
-                }
-            }
-        })
-
-        //Product Name H3
-        Array.from(getProductNames).map(function(name){
-            for(let i= 0; i < productFound.length; i++){
-                if(Array.from(getProductNames).indexOf(name) === productFound.indexOf(productFound[i])){
-                    name.innerHTML = productFound[i].name;
-                }
-            }
-        })
-
-        // Product Info
-        Array.from(getProductPs).map(function(p){
-            for(let i= 0; i < productFound.length; i++){
-                if(Array.from(getProductPs).indexOf(p) === productFound.indexOf(productFound[i])){
-                    p.innerHTML = productFound[i].desc;
-                }
-            }
-        })
-        
-        first_click = false;
-    }
-    else {
-        // Remove Current Product
-        let currentProducts = getDivProduct.querySelectorAll('.container-product');
-        Array.from(currentProducts).map(function(currentProduct){
-            currentProduct.remove();
-        })
-        
-        getHomeSection.style.display="none";
-        getFeaturesSection.style.display="none";
-        getBackgroundPlace.classList.add('active');
-        searchForm.classList.remove('active');
-        getDivProduct.classList.add('active','grid','wide');
-    
-        // Find Product
-        var getProductName = dataProducts.map(function(product){
-            return {   
-                    id : `${product.id}`,
-                    name: product.name.toLowerCase().trim(),
-                    url: product.img,
-                    rate: product.rate,
-                    price: product.price,
-                    desc: product.desc
-                }
-        })
-    
-        var productFound = [];
-        for(i of getProductName) {
-            
-            if(!inputSearch.value || !inputSearch.value.replace(/\s+/g, '')){
-                // Logic when product unfound
-                let containerProduct = document.createElement('div'); // container product
-                let boxProduct = document.createElement('div'); // box product
-                let img = document.createElement('img'); // img
-                let nameProduct = document.createElement('h3'); // name product
-                let price = document.createElement('div'); // price
-                let rate = document.createElement('div'); // stars
-                let btn = document.createElement('a'); // a tag
-                let productInfo = document.createElement('div'); // product info
-                let productHeader = document.createElement('div'); // product header
-                let prodcucth3 = document.createElement('h3'); //prodcut h3 
-                let productName = document.createElement('div'); // product name
-                let productDesc = document.createElement('h3'); // product description
-                let productP = document.createElement('p'); // product description
-        
-                getDivProduct.appendChild(containerProduct).classList.add('container-product');
-                containerProduct.appendChild(boxProduct).classList.add('box-product');
-                boxProduct.appendChild(img).src = './image/empty_cart.jpg';
-                boxProduct.appendChild(nameProduct);
-                boxProduct.appendChild(price).classList.add('price');
-                boxProduct.appendChild(rate).classList.add('stars');
-                boxProduct.appendChild(btn).classList.add('btn');
-                boxProduct.appendChild(btn).innerHTML = 'Thêm sản phẩm';
-                
-                containerProduct.appendChild(productInfo).classList.add('product-info');
-                productInfo.appendChild(productHeader).classList.add('product-header');
-                productHeader.appendChild(prodcucth3).innerHTML = 'Tên sản phẩm';
-                productHeader.appendChild(productName).classList.add('product-name');
-                productInfo.appendChild(productDesc).innerHTML = 'Thông tin sản phẩm';
-                productInfo.appendChild(productP).innerHTML = 'rất tiếc ! Sản phẩm bạn tìm kiếm không có !';
-                break;
-            }
-            if(i.name.toLowerCase().trim().includes(inputSearch.value.toLowerCase().trim())){
-                productFound.push(i);
-            }
-        }
-    
-        // Create Prodcuct container
-        // Product 
-        for(let i = 0; i < productFound.length; i++){
-            let containerProduct = document.createElement('div'); // container product
-            let boxProduct = document.createElement('div'); // box product
-            let img = document.createElement('img'); // img
-            let nameProduct = document.createElement('h3'); // name product
-            let price = document.createElement('div'); // price
-            let rate = document.createElement('div'); // stars
-            let btn = document.createElement('a'); // a tag
+            // let btn = document.createElement('a'); 
             let productInfo = document.createElement('div'); // product info
             let productHeader = document.createElement('div'); // product header
             let prodcucth3 = document.createElement('h3'); //prodcut h3 
@@ -303,82 +90,139 @@ searchBtn.onclick = function() {
             boxProduct.appendChild(nameProduct);
             boxProduct.appendChild(price).classList.add('price');
             boxProduct.appendChild(rate).classList.add('stars');
-            boxProduct.appendChild(btn).classList.add('btn');
-            boxProduct.appendChild(btn).innerHTML = 'Thêm sản phẩm';
+            // boxProduct.appendChild(btn).classList.add('btn');
+            // boxProduct.appendChild(btn).innerHTML = 'Thêm sản phẩm';
             
             containerProduct.appendChild(productInfo).classList.add('product-info');
             productInfo.appendChild(productHeader).classList.add('product-header');
             productHeader.appendChild(prodcucth3).innerHTML = 'Tên sản phẩm';
             productHeader.appendChild(productName).classList.add('product-name');
             productInfo.appendChild(productDesc).innerHTML = 'Thông tin sản phẩm';
-            productInfo.appendChild(productP);
-        } 
-    
-            
-        // Logic show products
-        // Put info into DOM
-        let getImgs = document.querySelectorAll('.box-product img');    
-        let getH3s = document.querySelectorAll('.box-product h3');    
-        let getPrices = document.querySelectorAll('.box-product .price');    
-        let getStarss = document.querySelectorAll('.box-product .stars'); 
+            productInfo.appendChild(productP).innerHTML = 'rất tiếc ! Sản phẩm bạn tìm kiếm không có !';
+            break;
+        }
+        if(i.name.toLowerCase().trim().includes(inputSearch.value.toLowerCase().trim())){
+            productFound.push(i);
+        }
+    }
+
+    // Create Prodcuct container
+    // Product 
+    for(let i = 0; i < productFound.length; i++){
+        let containerProduct = document.createElement('div'); // container product
+        let boxProduct = document.createElement('div'); // box product
+        let img = document.createElement('img'); // img
+        let nameProduct = document.createElement('h3'); // name product
+        let price = document.createElement('div'); // price
+        let rate = document.createElement('div'); // stars
+        let btn = document.createElement('a'); // a tag
+        let productInfo = document.createElement('div'); // product info
+        let productHeader = document.createElement('div'); // product header
+        let prodcucth3 = document.createElement('h3'); //prodcut h3 
+        let productName = document.createElement('div'); // product name
+        let productDesc = document.createElement('h3'); // product description
+        let productP = document.createElement('p'); // product description
+
+        getDivProduct.appendChild(containerProduct).classList.add('container-product');
+        containerProduct.appendChild(boxProduct).classList.add('box-product');
+        boxProduct.appendChild(img);
+        boxProduct.appendChild(nameProduct);
+        boxProduct.appendChild(price).classList.add('price');
+        boxProduct.appendChild(rate).classList.add('stars');
+        boxProduct.appendChild(btn).classList.add('btn');
+        boxProduct.appendChild(btn).innerHTML = 'Thêm sản phẩm';
         
-        let getProductNames = document.querySelectorAll('.product-info .product-header .product-name');
-        let getProductPs = document.querySelectorAll('.product-info p');
+        containerProduct.appendChild(productInfo).classList.add('product-info');
+        productInfo.appendChild(productHeader).classList.add('product-header');
+        productHeader.appendChild(prodcucth3).innerHTML = 'Tên sản phẩm';
+        productHeader.appendChild(productName).classList.add('product-name');
+        productInfo.appendChild(productDesc).innerHTML = 'Thông tin sản phẩm';
+        productInfo.appendChild(productP);
+    } 
+
+        
+    // Logic show products
+    // Put info into DOM
+    let getImgs = document.querySelectorAll('.box-product img');    
+    let getH3s = document.querySelectorAll('.box-product h3');    
+    let getPrices = document.querySelectorAll('.box-product .price');    
+    let getStarss = document.querySelectorAll('.box-product .stars'); 
     
-        //Product Name
-        Array.from(getH3s).map(function(h3){
-            for(let i= 0; i < productFound.length; i++){
-                if(Array.from(getH3s).indexOf(h3) === productFound.indexOf(productFound[i])){
-                    h3.innerHTML = productFound[i].name;
-                }
-            }
-        })
+    let getProductNames = document.querySelectorAll('.product-info .product-header .product-name');
+    let getProductPs = document.querySelectorAll('.product-info p');
     
-        //Product img
-        console.log(getImgs);
-        console.log(productFound);
-        Array.from(getImgs).map(function(img){
-            for(let i= 0; i < productFound.length; i++){
-                if(Array.from(getImgs).indexOf(img) === productFound.indexOf(productFound[i])){
-                    img.src = productFound[i].url;
-                }
+    //Product Name
+    console.log(getH3s);
+    console.log(productFound);
+    Array.from(getH3s).map(function(h3){
+        for(let i= 0; i < productFound.length; i++){
+            if(Array.from(getH3s).indexOf(h3) === productFound.indexOf(productFound[i])){
+                h3.innerHTML = productFound[i].name;
             }
-        })
+        }
+    })
 
-        // Product Rate
-        Array.from(getStarss).map(function(star){
-            for(let i= 0; i < productFound.length; i++){
-                if(Array.from(getStarss).indexOf(star) === productFound.indexOf(productFound[i])){
-                    star.innerHTML = productFound[i].rate;
-                }
+    //Product img
+    console.log(getImgs);
+    console.log(productFound);
+    Array.from(getImgs).map(function(img){
+        for(let i= 0; i < productFound.length; i++){
+            if(Array.from(getImgs).indexOf(img) === productFound.indexOf(productFound[i])){
+                img.src = productFound[i].url;
             }
-        })
+        }
+    })
 
-        // Product Price
-        Array.from(getPrices).map(function(price){
-            for(let i= 0; i < productFound.length; i++){
-                if(Array.from(getPrices).indexOf(price) === productFound.indexOf(productFound[i])){
-                    price.innerHTML = productFound[i].price + ' VND';
-                }
+    // Product Rate
+    Array.from(getStarss).map(function(star){
+        for(let i= 0; i < productFound.length; i++){
+            if(Array.from(getStarss).indexOf(star) === productFound.indexOf(productFound[i])){
+                star.innerHTML = productFound[i].rate;
             }
-        })
+        }
+    })
 
-        //Product Name H3
-        Array.from(getProductNames).map(function(name){
-            for(let i= 0; i < productFound.length; i++){
-                if(Array.from(getProductNames).indexOf(name) === productFound.indexOf(productFound[i])){
-                    name.innerHTML = productFound[i].name;
-                }
+    // Product Price
+    Array.from(getPrices).map(function(price){
+        for(let i= 0; i < productFound.length; i++){
+            if(Array.from(getPrices).indexOf(price) === productFound.indexOf(productFound[i])){
+                price.innerHTML = productFound[i].price + ' VND';
             }
-        })
+        }
+    })
 
-        // Product Info
-        Array.from(getProductPs).map(function(p){
-            for(let i= 0; i < productFound.length; i++){
-                if(Array.from(getProductPs).indexOf(p) === productFound.indexOf(productFound[i])){
-                    p.innerHTML = productFound[i].desc;
-                }
+    //Product Name H3
+    Array.from(getProductNames).map(function(name){
+        for(let i= 0; i < productFound.length; i++){
+            if(Array.from(getProductNames).indexOf(name) === productFound.indexOf(productFound[i])){
+                name.innerHTML = productFound[i].name;
             }
+        }
+    })
+
+    // Product Info
+    Array.from(getProductPs).map(function(p){
+        for(let i= 0; i < productFound.length; i++){
+            if(Array.from(getProductPs).indexOf(p) === productFound.indexOf(productFound[i])){
+                p.innerHTML = productFound[i].desc;
+            }
+        }
+    })   
+}
+
+//Search
+var first_click = true;
+searchBtn.onclick = function() {
+    if(first_click){
+        check();
+        first_click = false;
+    }
+    else {
+        // Remove Current Product
+        let currentProducts = getDivProduct.querySelectorAll('.container-product');
+        Array.from(currentProducts).map(function(currentProduct){
+            currentProduct.remove();
         })
+        check();
     }   
 }

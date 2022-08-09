@@ -362,9 +362,12 @@ section {
     transition: .5s linear;
 }
 
-.container.active{
+.container-product{
     display: flex;
-    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.container.active{
     transition: .5s linear;
 }
 
@@ -934,6 +937,8 @@ section {
         margin-right: auto;     
         margin-top: 3rem;
         width: 90%;
-
+    }
+    .container-product {
+        flex-direction: column;
     }
 }

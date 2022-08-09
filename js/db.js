@@ -33,6 +33,8 @@ let getBackgroundPlace = document.querySelector('.container-background');
 let getHomeSection = document.querySelector('.home');
 let getFeaturesSection = document.querySelector('.features');
 let searchHint = document.querySelector('.header .search-form .search-hint');
+let getBtnHome = document.querySelector('.home-btn');
+let getBtnFeatures = document.querySelector('.features-btn');
 
 // Hint
 inputSearch.onclick = function() {
@@ -117,6 +119,8 @@ let check = function(){
     getBackgroundPlace.classList.add('active');
     searchForm.classList.remove('active');
     getDivProduct.classList.add('active','grid','wide');
+    getBtnHome.href = './index.html';
+    getBtnFeatures.href = './index.html';
 
     // Find Product
     var getProductName = dataProducts.map(function(product){

@@ -12,7 +12,7 @@ var dataProducts = [
         id: 2,
         img:'./image/product-2.png',
         name:'Hành Tím',
-        price: 7000,
+        price: 10000,
         rate: '<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>',
         desc: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut, vel.',
     },
@@ -89,7 +89,7 @@ searchBtn.onclick = function() {
         
                 getDivProduct.appendChild(containerProduct).classList.add('container-product');
                 containerProduct.appendChild(boxProduct).classList.add('box-product');
-                boxProduct.appendChild(img);
+                boxProduct.appendChild(img).src = './image/empty_cart.jpg';
                 boxProduct.appendChild(nameProduct);
                 boxProduct.appendChild(price).classList.add('price');
                 boxProduct.appendChild(rate).classList.add('stars');
@@ -101,7 +101,7 @@ searchBtn.onclick = function() {
                 productHeader.appendChild(prodcucth3).innerHTML = 'Tên sản phẩm';
                 productHeader.appendChild(productName).classList.add('product-name');
                 productInfo.appendChild(productDesc).innerHTML = 'Thông tin sản phẩm';
-                productInfo.appendChild(productP);
+                productInfo.appendChild(productP).innerHTML = 'rất tiếc ! Sản phẩm bạn tìm kiếm không có !';
                 break;
             }
             if(i.name.toLowerCase().trim().includes(inputSearch.value.toLowerCase().trim())){
@@ -260,7 +260,7 @@ searchBtn.onclick = function() {
         
                 getDivProduct.appendChild(containerProduct).classList.add('container-product');
                 containerProduct.appendChild(boxProduct).classList.add('box-product');
-                boxProduct.appendChild(img);
+                boxProduct.appendChild(img).src = './image/empty_cart.jpg';
                 boxProduct.appendChild(nameProduct);
                 boxProduct.appendChild(price).classList.add('price');
                 boxProduct.appendChild(rate).classList.add('stars');
@@ -272,7 +272,7 @@ searchBtn.onclick = function() {
                 productHeader.appendChild(prodcucth3).innerHTML = 'Tên sản phẩm';
                 productHeader.appendChild(productName).classList.add('product-name');
                 productInfo.appendChild(productDesc).innerHTML = 'Thông tin sản phẩm';
-                productInfo.appendChild(productP);
+                productInfo.appendChild(productP).innerHTML = 'rất tiếc ! Sản phẩm bạn tìm kiếm không có !';
                 break;
             }
             if(i.name.toLowerCase().trim().includes(inputSearch.value.toLowerCase().trim())){
@@ -299,7 +299,7 @@ searchBtn.onclick = function() {
     
             getDivProduct.appendChild(containerProduct).classList.add('container-product');
             containerProduct.appendChild(boxProduct).classList.add('box-product');
-            boxProduct.appendChild(img);
+            boxProduct.appendChild(img).src = './image/empty_cart.jpg';
             boxProduct.appendChild(nameProduct);
             boxProduct.appendChild(price).classList.add('price');
             boxProduct.appendChild(rate).classList.add('stars');

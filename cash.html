@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thanh toán và giao hàng</title>
+    <!-- CSS Responsive link -->
+    <link rel="stylesheet" href="./css/grid.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+
+    <!-- Font awesome link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- CSS link -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="logocash">
+      <a href="./index.html" class="logo">
+        <i class="fas fa-shopping-basket"></i>
+        Rau Sạch
+      </a>
+    </div>
+    <div class="containercash">
+      <h1>Xác nhận đơn hàng và thanh toán:</h1>
+      <div class="cashdili">
+        <div class="name">
+          <p>Tên người nhận hàng</p>
+          <input type="text" name="" id="" />
+        </div>
+        <div class="adrs">
+          <p>Địa chỉ nhận hàng</p>
+          <input type="text" name="" id="" />
+        </div>
+        <div class="phone">
+          <p>Số điện thoại nhận hàng</p>
+          <input type="text" name="" id="" />
+        </div>
+        <div class="tong">
+          <p>Tổng giá trị đơn hàng (VNĐ)</p>
+          <input type="text" name="" id="tong" />
+        </div>
+        <div class="cash">
+          <p>Phương thức thanh toán</p>
+          <form action="Submit">
+            <label for="cashname">Chọn phương thức thanh toán:</label>
+            <select name="cashway" id="cash1">
+              <option value="online">Chuyển khoản internet banking</option>
+              <option value="pay">Ví điện tử</option>
+              <option value="credit">Thẻ tín dụng</option>
+              <option value="home">Thanh toán khi nhận hàng</option>
+            </select>
+          </form>
+        </div>
+        <div class="bt">
+          <button class="btn" id="submit">Xác nhận</button>
+          <button class="btn" id="back">
+            Quay lại
+          </button>
+        </div>
+        <div id="myModalcash" class="modalcash">
+          <!-- Modal content -->
+          <div class="modalcash-content">
+            <span class="cashclose">&times;</span>
+            <p>
+              Cảm ơn bạn đã lựa chọn rau sạch
+              <i class="fa-solid fa-circle-check"></i>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/cash.js"></script>
+  </body>
+</html>

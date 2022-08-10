@@ -159,6 +159,7 @@ section {
     display: flex;
     align-items: center;
     box-shadow: var(--box-shadow);
+    margin: 0;
 }
 
 .header .search-form.active {
@@ -300,6 +301,7 @@ section {
     border-radius: .5rem;
     background: #fff;
     text-align: center;
+    margin: 0;
 }
 
 .header .register-form,

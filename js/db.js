@@ -15,14 +15,6 @@ var dataProducts = [
         price: 10000,
         rate: '<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>',
         desc: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut, vel.',
-    },
-    {
-        id: 3,
-        img:'./image/product-2.png',
-        name:'Hành Tím hehe',
-        price: 7000,
-        rate: '<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>',
-        desc: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut, vel.',
     }
 ]
 

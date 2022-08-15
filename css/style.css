@@ -328,6 +328,7 @@ section {
 
 .form-control {
     position: relative;
+    text-align: left;
 }
 
 .header .register-form .form-control i {
@@ -375,7 +376,7 @@ section {
 .header .register-form .error small {
     visibility: visible;
     color: #e74c3c;
-    font-size: 15px;
+    font-size: 1.3rem;
 }
 
 
@@ -1253,7 +1254,7 @@ form {
     }
     .icons {
         margin-left: -10px;
-    }
+    }.logocash
     .features .box-container .box img {
         height: 13rem;
     }

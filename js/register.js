@@ -56,24 +56,20 @@ function checkInputs() {
 		setErrorFor(password2, 'Mật khẩu không khớp');
 	} else{
 		setSuccessFor(password2);
-
 		function timeOut(){
-        
-		email.value=("");
-		password.value=("");
-		password2.value=("");
-    	overlay.style.display ='none';
 		
-        overlay.classList.remove('active');
-        registerForm.classList.remove('active');
-		location.reload();
+			email.value=("");
+			password.value=("");
+			password2.value=("");
+			overlay.style.display ='none';
+			
+			overlay.classList.remove('active');
+			registerForm.classList.remove('active');
+			location.reload();
 		
 		}
 		
 		setTimeout(timeOut,1000);
-	
-		
 	}
-	
 }
 

@@ -71,6 +71,22 @@ section {
     background: var(--orange);
     color: #fff;
 }
+.btncart-search {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: .8rem 3rem;
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    border: .2rem solid var(--black);
+    color: var(--light-color);
+    cursor: pointer;
+    background: none;
+}
+
+.btncart-search:hover {
+    background: var(--orange);
+    color: #fff;
+}
 
 .overlay {
     display: none;
@@ -291,6 +307,97 @@ section {
     text-align: center;
     margin: 1rem;
 }
+
+
+/* form validation start */
+.header .register-form {
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    top: 150%;
+    right: -110%;
+    transform: translateX(50%);
+    width: 60rem;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    border-radius: .5rem;
+    background: #fff;
+    text-align: center;
+    z-index: 5000;
+}
+
+.form-control {
+    position: relative;
+}
+
+.header .register-form .form-control i {
+    position: absolute;
+    right: 30px;
+    visibility: hidden;
+    size: 10px;
+}
+
+.header .register-form .form-control small {
+    visibility: hidden;
+
+    top: 90px;
+    right: 30px;
+
+}
+
+.header .register-form .success input {
+    border: 3px solid #2ecc71;
+}
+
+.header .register-form .error input {
+    border: 3px solid #e74c3c;
+}
+
+.form-control i {
+    visibility: hidden;
+    position: absolute;
+    top: 22px;
+    right: 10px;
+}
+
+.header .register-form .success i.fa-check-circle {
+    visibility: visible;
+    color: #2ecc71;
+    font-size: 20px;
+}
+
+.header .register-form .error i.fa-exclamation-circle {
+    visibility: visible;
+    color: #e74c3c;
+    font-size: 20px;
+}
+
+.header .register-form .error small {
+    visibility: visible;
+    color: #e74c3c;
+    font-size: 15px;
+}
+
+
+
+.header .register-form.active {
+    right: 50%;
+    transition: .3s linear;
+}
+
+.header .register-form .close i {
+    font-size: 2.5rem;
+    padding: 10px 15px;
+}
+
+.header .register-form .close {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    cursor: pointer;
+}
+
+/* form validation end */
 
 .header .login-form {
     position: absolute;

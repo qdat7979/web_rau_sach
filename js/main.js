@@ -55,17 +55,17 @@ document.querySelector('.header .forget-form .close i').onclick = (e) => {
 
 let navbar = document.querySelector('.navbar');
 document.querySelector('#menu-btn').onclick = ()=> {
-    navbar.classList.toggle('active');
-    loginForm.classList.remove('active');
-    shoppingCart.classList.remove('active');
-    searchForm.classList.remove('active');
+  navbar.classList.toggle('active');
+  loginForm.classList.remove('active');
+  shoppingCart.classList.remove('active');
+  searchForm.classList.remove('active');
 }
 
-window.onscroll = () => {
-    navbar.classList.remove('active');
-    loginForm.classList.remove('active');
-    shoppingCart.classList.remove('active');
+window.onscroll = () =>{
     searchForm.classList.remove('active');
+    shoppingCart.classList.remove('active');
+    loginForm.classList.remove('active');
+    navbar.classList.remove('active');
 }
 
 

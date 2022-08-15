@@ -227,13 +227,10 @@ let searchHint = document.querySelector('.header .search-form .search-hint');
 let getBtnHome = document.querySelector('.home-btn');
 let getBtnFeatures = document.querySelector('.features-btn');
 
+
 // Hint
 inputSearch.onclick = function() {
   searchHint.style.display="block";
-}
-
-window.onscroll = () => {
-    searchHint.style.display = "none";  
 }
 
 // Container when fail

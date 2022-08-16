@@ -397,7 +397,19 @@ section {
     right: 1rem;
     cursor: pointer;
 }
+#tb{
+    font-size: 30px;
+}
+#tb2 {
+    font-size: 15px;
+}
 
+p#tb {
+    color: #2ecc71;
+}
+p#tb2 {
+    color: #2ecc71;
+}
 /* form validation end */
 
 .header .login-form {
@@ -974,7 +986,7 @@ section {
     border: 1px solid rgba(0, 0, 0, .2);
     border-radius: .3rem;
     outline: 0;
-
+    border-radius: 1.3rem;
 }
 
 .modal-body {

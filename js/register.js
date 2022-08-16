@@ -2,21 +2,27 @@ const form = document.getElementById('form');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
+const rsgbt = document.getElementById('register-btn');
+const tb = document.getElementById("tb")
+const tb2 =document.getElementById("tb2")
+tb.style.display = "none"
+tb2.style.display = "none"
 
-form.addEventListener('submit', e => {
-	e.preventDefault();
-	
-	checkInputs();
-});
 
 
+// form.addEventListener('submit', e => {
+// 	e.preventDefault();
+// 	checkInputs();
+// });
 
 function setErrorFor(input, message) {
 	const formControl = input.parentElement;
 	const small = formControl.querySelector('small');
 	formControl.className = 'form-control error';
-	small.innerText = message;
+	small.innerText = message;		
 }
+
+
 
 function setSuccessFor(input) {
 	const formControl = input.parentElement;
@@ -36,12 +42,16 @@ function checkInputs() {
 	
 	if(emailValue === '') {
 		setErrorFor(email, 'Email không được để trống');
+		alert("Nhập email của bạn trước")
+		return
 	} else if (!isEmail(emailValue)) {
 		setErrorFor(email, 'Email không hợp lệ');
+		alert("Sai định dạng email")
+		return
 	} else {
 		setSuccessFor(email);
-		
-        
+		document.getElementById("password").disabled = false
+		document.getElementById("password2").disabled=false
 	}
 	
 	if(passwordValue === '') {
@@ -54,22 +64,20 @@ function checkInputs() {
 		setErrorFor(password2, 'Xác nhận mật khẩu không được để trống');
 	} else if(passwordValue !== password2Value) {
 		setErrorFor(password2, 'Mật khẩu không khớp');
+		rsgbt.addEventListener("click", () => {
+		checkInputs();
+		tb.style.display = "none"
+		tb2.style.display = "none"
+		})
 	} else{
 		setSuccessFor(password2);
-		function timeOut(){
-		
-			email.value=("");
-			password.value=("");
-			password2.value=("");
-			overlay.style.display ='none';
-			
-			overlay.classList.remove('active');
-			registerForm.classList.remove('active');
-			location.reload();
-		
-		}
-		
-		setTimeout(timeOut,1000);
+		rsgbt.addEventListener("click", () => {
+		checkInputs();
+		tb.style.display = "block"
+		tb2.style.display = "block"
+		})
 	}
+	
 }
+
 

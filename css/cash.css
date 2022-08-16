@@ -126,6 +126,8 @@ body {
     /* Could be more or less, depending on screen size */
     text-align: center;
     font-size: 45px;
+    color: #2ecc71;
+    border-radius: 1.3rem;
 }
 
 /* The Close Button */
@@ -134,6 +136,9 @@ body {
     float: right;
     font-size: 28px;
     font-weight: bold;
+    position: relative;
+    top: -1.8rem;
+    right: -0.5rem;
 }
 
 .cashclose:hover,
@@ -214,6 +219,10 @@ body {
     .containercash {
         width: 60%;
     }
+    .modalcash-content {
+        width: 60%;
+        margin: 50% auto;
+    }
 }
 
 @media (max-width:450px){
@@ -223,5 +232,12 @@ body {
 
     .containercash {
         width: 100%;
+    }
+    .cashdili p {
+        font-size: 2rem;
+    }
+    .modalcash-content {
+        width: 60%;
+        margin: 50% auto;
     }
 }

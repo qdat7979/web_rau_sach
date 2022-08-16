@@ -57,42 +57,46 @@
                         </li>
                 </div>
             </form>
+
             <!-- register start-->
             <form action="" class="register-form" id="form">
                 <h3>Đăng Ký</h3>
                 <div class="form-control">
-                    <!-- <input type="text" id="username" placeholder="Tên đăng nhập"> -->
+                    <input type="text" id="username" placeholder="">
                     <i class="fas fa-check-circle"></i>
                     <i class="fas fa-exclamation-cirle"></i>
                     <small>Vui lòng điền lại thông tin</small>
                 </div>
                 <div class="form-control" id="1">
-                    <input type="text" onblur="checkInputs()" class="box" id="email" placeholder="Email của bạn">
+                    <input  type="text" onblur="checkInputs()" class="box" id="email" placeholder="Email của bạn">
                     <i class="fas fa-check-circle"></i>
                     <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
                     <small>Vui lòng điền lại thông tin</small>
                 </div>
-                <div class="form-control" id="2">
-                    <input type="password" onblur="checkInputs()" class="box" id="password"
+                <div  class="form-control" id="2">
+                    <input disabled="disabled" type="password" onblur="checkInputs()" class="box" id="password"
                         placeholder="Mật khẩu của bạn">
                     <i class="fas fa-check-circle"></i>
                     <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
                     <small>Vui lòng điền lại thông tin</small>
                 </div>
                 <div class="form-control" id="3">
-                    <input type="password" onblur="checkInputs()" class="box" id="password2"
+                    <input disabled="disabled" type="password" onblur="checkInputs()" class="box" id="password2"
                         placeholder=" Nhập lại Mật khẩu">
                     <i class="fas fa-check-circle"></i>
                     <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
                     <small>Vui lòng điền lại thông tin</small>
                 </div>
+                <p id="tb">Đăng ký thành công <i class="fas fa-check-circle"></i></p>
+                <p id="tb2">Hãy đăng nhập để mua sắm ngay nhé!</p>
 
-
-                <input type="submit" value="Đăng ký" id="register-btn" class="btn">
+                <button type="submit" id="register-btn" class="btn">Đăng ký</button>
+                <!-- <input type="submit"value="Đăng ký" id="register-btn" class="btn"> -->
                 <div class="close"><i class="fa-solid fa-xmark"></i></div>
 
             </form>
             <!-- register end -->
+
             <!-- modal giỏ hàng start-->
             <div id="myModal" class="modal">
                 <div class="modal-content">
@@ -119,7 +123,7 @@
                         <button type="button" class="btn btn-secondary close-footer">
                             Đóng
                         </button>
-                        <button type="button" class="btn btn-primary order">
+                        <button type="button" class="btn btn-primary order" disabled >
                             Thanh Toán
                         </button>
                     </div>

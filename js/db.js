@@ -3,9 +3,10 @@
 let modal = document.getElementById("myModal");
 let btn = document.getElementById("cart-btn");
 let close = document.getElementsByClassName("close")[0];
-
 let close_footer = document.getElementsByClassName("close-footer")[0];
 let order = document.getElementsByClassName("order")[0];
+
+
 btn.onclick = function () {
   modal.style.display = "block";
 }
@@ -42,6 +43,11 @@ function updatecart() {
     let quantity = quantity_item.value // lấy giá trị trong thẻ input
 
     total = total + (price * quantity)
+    if (total == "") {
+      order.disabled=true
+    } else {
+      order.disabled= false
+    }
     sl = sl + 1
   }
   // console.log(sl)
@@ -84,6 +90,7 @@ for (let i = 0; i < add_cart.length; i++) {
     // modal.style.display = "block";
     updatecart()
   })
+  
 }
 
 
@@ -227,11 +234,14 @@ let searchHint = document.querySelector('.header .search-form .search-hint');
 let getBtnHome = document.querySelector('.home-btn');
 let getBtnFeatures = document.querySelector('.features-btn');
 
-
 // Hint
 inputSearch.onclick = function() {
   searchHint.style.display="block";
 }
+
+// window.onscroll = () => {
+//     searchHint.style.display = "none";  
+// }
 
 // Container when fail
 let CreateProductContainerFail = function(){
